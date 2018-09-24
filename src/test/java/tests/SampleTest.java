@@ -1,13 +1,15 @@
 package tests;
 
 import org.testng.annotations.Test;
-import utils.PropertiesController;
 
 public class SampleTest extends BaseTest {
     @Test
     public void sample() {
         pageManager
-                .browser().open(PropertiesController.getProperty("env.url"))
-                .homePage().submitAnnouncement();
+                .home().selectCategory("transport")
+                .home().selectItemFromCategory("cars")
+                .cars().selectModel("kia")
+                .item().selectItem(0)
+                .itemDescription().addToFavorites();
     }
 }

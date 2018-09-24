@@ -1,6 +1,7 @@
 package kdt.pages;
 
 import com.codeborne.selenide.Selenide;
+import kdt.pages.transport.CarsPage;
 
 public class PageManager {
 
@@ -15,11 +16,19 @@ public class PageManager {
         return pageManager;
     }
 
-    public Browser browser() {
-        return new Browser();
+    public HomePage home() {
+        return Selenide.page(HomePage.class);
     }
 
-    public HomePage homePage() {
-        return Selenide.page(HomePage.class);
+    public CarsPage cars() {
+        return Selenide.page(CarsPage.class);
+    }
+
+    public ItemPage item() {
+        return Selenide.page(ItemPage.class);
+    }
+
+    public ItemDescriptionPage itemDescription() {
+        return Selenide.page(ItemDescriptionPage.class);
     }
 }

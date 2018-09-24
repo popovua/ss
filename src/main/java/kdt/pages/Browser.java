@@ -1,5 +1,7 @@
 package kdt.pages;
 
+import annotations.DynamicPage;
+import annotations.URI;
 import com.codeborne.selenide.*;
 import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,16 +13,14 @@ import utils.PropertiesController;
 public class Browser extends LoadableComponent<Browser> {
 
     protected final PageManager pageManager;
+    private static final String BASE_URL = PropertiesController.getProperty("env.url");
+    private static String uri;
+    private static final String LNG = PropertiesController.getProperty("lng");
 
     public Browser() {
         this.pageManager = PageManager.getInstance();
+        get();
     }
-
-    @Override
-    protected void load() { }
-
-    @Override
-    protected void isLoaded() throws Error { }
 
     @Step
     public PageManager open(String url) {
@@ -85,5 +85,27 @@ public class Browser extends LoadableComponent<Browser> {
     public PageManager maximize() {
         WebDriverRunner.getWebDriver().manage().window().maximize();
         return pageManager;
+    }
+
+    @Override
+    protected void load() {
+        URI uri = this.getClass().getAnnotation(URI.class);
+        Selenide.open(BASE_URL + LNG + uri.value());
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        if (!this.getClass().isAnnotationPresent(DynamicPage.class)) {
+            if (!WebDriverRunner.hasWebDriverStarted()) {
+                DriverFactory.initDriver(PropertiesController.getProperty("env.browser"));
+            }
+            URI uri = this.getClass().getAnnotation(URI.class);
+            if (!WebDriverRunner.getWebDriver().getCurrentUrl().equals(BASE_URL + LNG + uri.value())) {
+                throw new Error();
+            }
+        }
+        else {
+            System.out.println(1);
+        }
     }
 }

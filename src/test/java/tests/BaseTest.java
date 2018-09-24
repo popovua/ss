@@ -1,5 +1,7 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import kdt.pages.PageManager;
 import log.selenide.allure.SelenideAllureListener;
 import org.testng.annotations.AfterSuite;
@@ -15,7 +17,6 @@ public class BaseTest {
 
     @AfterSuite(alwaysRun = true)
     public void afterSuite() {
-        pageManager
-                .homePage().quite();
+        if (WebDriverRunner.hasWebDriverStarted()) Selenide.close();
     }
 }
