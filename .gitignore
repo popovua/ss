@@ -1,0 +1,17 @@
+**/.classpath
+**/.cproject
+.project
+.settings
+.git*
+!.gitignore
+!.gitattributes
+target/
+build/
+*.iml
+*.ipr
+*.iws
+*.ids
+.DS_Store
+.idea/
+*.log
+**/src/test/resources/drivers/
