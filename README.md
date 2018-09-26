@@ -14,10 +14,10 @@ Framework based on Keyword-Driver approach.
 The idea is creating test scenarios using chain of keywords.
 
 First step, call for keywords page, i.e.:
-* 'Page' - ''pageManager.homePage()''
+* `Page` - ``pageManager.homePage()``
 
 Second step, select keyword, i.e.:
-* 'Page' - ''pageManager.homePage().chooseCategory(category)''
+* `Page` - ``pageManager.homePage().chooseCategory(category)``
 
 ## Reporting
 Reporting tool - *Allure 2*.
@@ -26,7 +26,7 @@ Reporting tool - *Allure 2*.
 
 Reporting tool integrated with base frameworks: *TestNG* and *Selenide*.
 
-> Use annotation *@Step* to mark method as Allure step
+> Use annotation *Step* to mark method as Allure step
 
 ### TestNG Integration
 Automatically. Don't need any extra setup in test. Just use TestNG API (annotations *Test*, *Before*, *After*) and test results will automatically appear in result HTML report.
