@@ -1,7 +1,7 @@
 # ss test project
 
 ## VCS
-git clone https://popov1@bitbucket.org/popov1/ss.git
+git clone https://popov1@bitbucket.org/popov1/ss.git.
 There is no custom setup task that you need to perform. You should be able to run the project out of the box.
 
 ## Environment
@@ -29,4 +29,4 @@ Reporting tool integrated with base frameworks: *TestNG* and *Selenide*.
 > Use annotation *@Step* to mark method as Allure step
 
 ### TestNG Integration
-Automatically. Don't need any extra setup in test. Just use TestNG API (annotations *@Test*, *@Before*, *@After*) and test results will automatically appear in result HTML report.
+Automatically. Don't need any extra setup in test. Just use TestNG API (annotations *Test*, *Before*, *After*) and test results will automatically appear in result HTML report.
