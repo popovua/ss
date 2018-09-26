@@ -35,4 +35,4 @@ Reporting tool integrated with base frameworks: *TestNG* and *Selenide*.
 Automatically. Don't need any extra setup in test. Just use TestNG API (annotations *Test*, *Before*, *After*) and test results will automatically appear in result HTML report.
 
 ### Selenide Integration
-Automatically. You can modify logic in `log/selenide package`.
+Automatically. Logic is stored under `log/selenide` package.
