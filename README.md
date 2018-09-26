@@ -9,6 +9,9 @@ Test design must follow multi-environment concept. Avoid any hardcode of environ
 
 All specific data should be stored in properties files located under package `resources/properties`.
 
+## Page Object
+Pages are stored under package `kdt/pages`. All pages should be managed by PageManager
+
 ## Test Strategy
 Framework based on Keyword-Driver approach.
 The idea is creating test scenarios using chain of keywords.
@@ -30,3 +33,6 @@ Reporting tool integrated with base frameworks: *TestNG* and *Selenide*.
 
 ### TestNG Integration
 Automatically. Don't need any extra setup in test. Just use TestNG API (annotations *Test*, *Before*, *After*) and test results will automatically appear in result HTML report.
+
+### Selenide Integration
+Automatically. You can modify logic in `log/selenide package`.
