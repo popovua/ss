@@ -5,6 +5,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import utils.PropertiesController;
 
 import java.util.stream.Collectors;
 
@@ -14,7 +15,7 @@ import static storage.Storage.rememberThe;
 @DynamicPage
 public class ItemListPage extends BasePage {
 
-    private ElementsCollection items = $$(By.xpath("(//tbody)//div[@class='d1']"));
+    private ElementsCollection items = $$(By.xpath(PropertiesController.getProperty("itemListPage.items")));
     private static SelenideElement selectedItem;
 
     public static final String ITEM_ID = "itemId";

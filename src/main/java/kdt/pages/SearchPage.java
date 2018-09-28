@@ -1,25 +1,22 @@
 package kdt.pages;
 
 import annotations.DynamicPage;
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import utils.PropertiesController;
 
-import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 @DynamicPage
 public class SearchPage extends BasePage {
 
-    private SelenideElement input = $(By.id("ptxt"));
-    private ElementsCollection dropDownResultList = $$(By.xpath("//div[@id='preload_txt']/div"));
-    private SelenideElement searchButton = $(By.id("sbtn"));
+    private SelenideElement input = $(By.id(PropertiesController.getProperty("searchPage.input")));
+    private ElementsCollection dropDownResultList = $$(By.xpath(PropertiesController.getProperty("searchPage.dropDownResultList")));
+    private SelenideElement searchButton = $(By.id(PropertiesController.getProperty("searchPage.searchButton")));
 
     private static String wordOrPhrase;
 

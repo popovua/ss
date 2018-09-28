@@ -80,6 +80,13 @@ public class PropertiesController {
         } catch (final IOException e) {
             throw new IllegalStateException("Failed to load configuration file", e);
         }
+    }
 
+    public static void loadSelectorsForPages() {
+        try {
+            loadProperties("properties/mode/" + PropertiesController.getProperty("mode") + ".properties");
+        } catch (final IOException e) {
+            throw new IllegalStateException("Failed to load configuration file", e);
+        }
     }
 }

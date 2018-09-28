@@ -4,13 +4,14 @@ import annotations.DynamicPage;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import utils.PropertiesController;
 
 import static com.codeborne.selenide.Selenide.$$;
 
 @DynamicPage
 public class AnnouncementTypePage extends BasePage {
 
-    private ElementsCollection announcements = $$(By.xpath("(//tbody)//h4[@class='category']/a"));
+    private ElementsCollection announcements = $$(By.xpath(PropertiesController.getProperty("announcementTypePage.announcements")));
 
     @Step
     public PageManager clickOnAnnouncement(String announcementName) {

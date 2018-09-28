@@ -4,9 +4,6 @@
 git clone https://popov1@bitbucket.org/popov1/ss.git.
 There is no custom setup task that you need to perform. You should be able to run the project out of the box.
 
-## Environment
-Test design must follow multi-environment concept. Avoid any hardcode of environment specific data.
-
 All specific data should be stored in properties files located under package `resources/properties`.
 
 ## Page Object
@@ -21,6 +18,13 @@ First step, call for keywords page, i.e.:
 
 Second step, select keyword, i.e.:
 * `Page` - ``pageManager.homePage().chooseCategory(category)``
+
+All dynamic data should be stored in ``Storage.rememberThe(String key, Object value)``
+It can be retrieved using ``Storage.whatIsThe(String key)`` or ``Storage.whatIsTheObject(String key, Class<T> tClass)``
+
+## Switching between web and mob mode
+Changing mode web/mob in common.properties file gives you ability to switch between them
+In tests you should annotate test method with MobileMode annotation to make it executable in appropriate mode
 
 ## Reporting
 Reporting tool - *Allure 2*.

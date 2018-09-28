@@ -20,18 +20,18 @@ import static storage.Storage.whatIsTheObject;
 
 public class MemoTest extends BaseTest {
 
-    @BeforeClass
-    public void prepareForTestClass() {
-        pageManager
-                .basePage().clearBrowserCookies();
-    }
-
     @DataProvider
     public Object[][] dataForTestAddItemToMemo() {
         return new Object[][] {
                 {"home stuff", "health, beauty", "skin"},
                 {"transport", "cars", "kia"}
         };
+    }
+
+    @BeforeClass
+    public void prepareForTestClass() {
+        pageManager
+                .basePage().clearBrowserCookies();
     }
 
     @Test(dataProvider = "dataForTestAddItemToMemo")

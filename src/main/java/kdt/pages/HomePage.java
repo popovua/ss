@@ -4,16 +4,15 @@ import annotations.URI;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import kdt.pages.elements.Header;
 import org.openqa.selenium.By;
+import utils.PropertiesController;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 @URI("/")
 public class HomePage extends BasePage {
 
-    private ElementsCollection categories = $$(By.xpath("(//div[@class='main_head2'])/h2"));
+    private ElementsCollection categories = $$(By.xpath(PropertiesController.getProperty("homePage.categories")));
     private static SelenideElement foundCategory;
     private static SelenideElement announcementType;
 
@@ -28,8 +27,14 @@ public class HomePage extends BasePage {
     }
 
     @Step
+    public PageManager clickOnSelectedCategory() {
+        foundCategory.click();
+        return pageManager;
+    }
+
+    @Step
     public PageManager chooseAnnouncementType(String itemName) {
-        announcementType = foundCategory.$$(By.xpath("../../../div[@class='main_category']/a")).stream()
+        announcementType = foundCategory.$$(By.xpath(PropertiesController.getProperty("homePage.categories.announcementType"))).stream()
                 .filter(item -> item.getText().toLowerCase().trim()
                         .equals(itemName.toLowerCase().trim()))
                 .findFirst()
