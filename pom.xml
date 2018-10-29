@@ -11,21 +11,15 @@
     <properties>
         <encoding>UTF-8</encoding>
         <!--LIBRARIES-->
-        <testng.version>6.13.1</testng.version>
-        <selenium-java.version>3.8.1</selenium-java.version>
-        <selenide.version>4.9</selenide.version>
-        <rest-assured.version>3.0.6</rest-assured.version>
+        <testng.version>6.14.3</testng.version>
+        <rest-assured.version>3.2.0</rest-assured.version>
         <allure-report.version>2.4.1</allure-report.version>
         <allure-maven.version>2.9</allure-maven.version>
-
-        <!--TESTING TOOLS-->
-        <webdrivermanager.version>2.0.1</webdrivermanager.version>
+        <allure.version>2.6.0</allure.version>
         <lombok.version>1.16.2</lombok.version>
-        <slf4j.version>1.7.25</slf4j.version>
-        <guava.version>23.0</guava.version>
-        <chromedriver.version>2.38</chromedriver.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
         <aspectj.version>1.8.13</aspectj.version>
-        <json-unit.version>1.28.2</json-unit.version>
 
         <!--PLUGINS -->
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
@@ -67,7 +61,7 @@
                         <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <excludes>
-                        <exclude>tests.widget.ConnectBaseTest</exclude>
+                        <exclude>tests.BaseTest</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -80,30 +74,25 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.14.3</version>
+            <version>${testng.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>${selenide.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium-java.version}</version>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.6.0</version>
+            <version>${allure.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-selenide</artifactId>
-            <version>2.6.0</version>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure.version}</version>
         </dependency>
 
         <dependency>
@@ -111,34 +100,17 @@
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.auto.service</groupId>
-            <artifactId>auto-service</artifactId>
-            <version>1.0-rc4</version>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <dependency>
